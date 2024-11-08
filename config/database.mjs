@@ -1,6 +1,5 @@
 import mongoose from "mongoose";
 import dotenv from "dotenv";
-import logger from "../utils/logger.mjs";
 
 dotenv.config();
 const URL = process.env.MONGODB_URL;
@@ -11,7 +10,7 @@ const databaseConnection = () => {
 
   const connection = mongoose.connection;
   connection.once("open", () => {
-    logger.info(`Database Connection Success`);
+    console.log(`Database Connection Success`);
   })
 };
 
