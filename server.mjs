@@ -5,6 +5,7 @@ import cors from "cors";
 import cookieparser from 'cookie-parser';
 import databaseConnection from "./config/database.mjs";
 import RoverRoutes from "./routes/RoverRoutes.mjs";
+import AGVHistoryRoutes from "./routes/AGVHistoryRoutes.mjs";
 
 const app = express();
 const PORT = process.env.PORT || "8080";
@@ -16,6 +17,7 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieparser());
 
 app.use("/", RoverRoutes);
+app.use("/AGV", AGVHistoryRoutes );
 
 app.listen(PORT, () => {
     console.log(`Server is up and running on port ${PORT}`);

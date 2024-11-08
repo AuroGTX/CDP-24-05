@@ -1,10 +1,10 @@
 
 import express from 'express';
-import { addOrUpdateRovers, getAllRovers } from '../Controllers/RoverController.mjs';
+import { addAGV, getAllAGVs } from '../Controllers/AGVHistoryController.mjs';
 
-const RoverRoutes = express.Router();
+const AGVHistoryRoutes = express.Router();
 
-RoverRoutes.post('/rovers', addOrUpdateRovers);
-RoverRoutes.get('/rovers', getAllRovers);
+AGVHistoryRoutes.post('/', addOrUpdateRovers);
+AGVHistoryRoutes.get('/', getAllRovers);
 
-export default RoverRoutes;
+export default AGVHistoryRoutes;

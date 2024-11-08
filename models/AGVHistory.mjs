@@ -1,35 +1,27 @@
 import mongoose from 'mongoose';
 
-const roverSchema = new mongoose.Schema({
-    client: { 
+const AGVSchema = new mongoose.Schema({
+    agvId: { 
         type: String, 
         required: true 
     },
 
-    country: { 
+    xCordinate: { 
         type: String, 
         required: true 
     },
 
-    date: { 
+    yCordinate: { 
+        type: String, 
+        required: true 
+    },
+
+    timeStamp: { 
         type: Date, 
         required: true 
     },
 
-    material: { 
-        type: String, 
-        required: true 
-    },
     
-    serial_number: { 
-        type: String,
-        required: true 
-    },
-
-    time: { 
-        type: String, 
-        required: true 
-    }
 });
 
-export default mongoose.model('Rover', roverSchema);
+export default mongoose.model('AGV_history', AGVSchema);

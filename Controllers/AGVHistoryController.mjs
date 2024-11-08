@@ -1,52 +1,34 @@
-import Rover from '../models/Rover.mjs';
+import AGVHistory from "../models/AGVHistory.mjs";
 
-export const addOrUpdateRovers = async (req, res) => {
+export const addAGV = async (req, res) => {
     try {
-        const rovers = req.body;
-        const results = [];
+        const agv = req.body;
+        // agv = new AGVHistory({
+        //     agv.agvId,
+        //     ,
+        //     date,
+        //     material,
+        //     serial_number,
+        //     time,
+        //     unique_id
+        // });
+        agv.timeStamp=new Date();
 
-        for (const serial_number in rovers) {
-            if (rovers.hasOwnProperty(serial_number)) {
-                const { client, country, date, material, time, unique_id } = rovers[serial_number];
 
-                let rover = await Rover.findOne({ client, country, material });
+        await agv.save();
+        results.push({ status: 'created', agv });
 
-                if (rover) {
-                    rover.date = date;
-                    rover.time = time;
-                    rover.unique_id = unique_id;
-                    rover.serial_number = serial_number;
-
-                    await rover.save();
-                    results.push({ serial_number, status: 'updated', rover });
-                } else {
-                    rover = new Rover({
-                        client,
-                        country,
-                        date,
-                        material,
-                        serial_number,
-                        time,
-                        unique_id
-                    });
-
-                    await rover.save();
-                    results.push({ serial_number, status: 'created', rover });
-                }
-            }
-        }
-
-        res.status(200).json({ message: 'Rovers processed successfully', results });
+        res.status(200).json({ message: 'AGV History processed successfully', results });
     } catch (error) {
-        res.status(500).json({ message: 'Error processing rover details', error: error.message });
+        res.status(500).json({ message: 'Error processing AGV History details', error: error.message });
     }
 };
 
-export const getAllRovers = async (req, res) => {
+export const getAllAGVs = async (req, res) => {
     try {
-        const rovers = await Rover.find();
-        res.status(200).json({ message: 'All rover details retrieved successfully', rovers });
+        const agv = await AGVHistory.find();
+        res.status(200).json({ message: 'All AGV History details retrieved successfully', agv });
     } catch (error) {
-        res.status(500).json({ message: 'Error retrieving rover details', error: error.message });
+        res.status(500).json({ message: 'Error retrieving AGV History details', error: error.message });
     }
 };
