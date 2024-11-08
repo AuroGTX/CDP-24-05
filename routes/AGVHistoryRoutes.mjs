@@ -4,7 +4,7 @@ import { addAGV, getAllAGVs } from '../Controllers/AGVHistoryController.mjs';
 
 const AGVHistoryRoutes = express.Router();
 
-AGVHistoryRoutes.post('/', addOrUpdateRovers);
-AGVHistoryRoutes.get('/', getAllRovers);
+AGVHistoryRoutes.post('/', addAGV);
+AGVHistoryRoutes.get('/', getAllAGVs);
 
 export default AGVHistoryRoutes;

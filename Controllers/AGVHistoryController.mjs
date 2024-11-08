@@ -2,23 +2,17 @@ import AGVHistory from "../models/AGVHistory.mjs";
 
 export const addAGV = async (req, res) => {
     try {
-        const agv = req.body;
-        // agv = new AGVHistory({
-        //     agv.agvId,
-        //     ,
-        //     date,
-        //     material,
-        //     serial_number,
-        //     time,
-        //     unique_id
-        // });
-        agv.timeStamp=new Date();
+        const {agvId, xCordinate, yCordinate} = req.body;
 
-
+        const agv = new AGVHistory({
+            agvId,
+            xCordinate,
+            yCordinate,
+            timeStamp: new Date()
+        });
         await agv.save();
-        results.push({ status: 'created', agv });
 
-        res.status(200).json({ message: 'AGV History processed successfully', results });
+        res.status(200).json({ message: 'AGV History processed successfully', agv });
     } catch (error) {
         res.status(500).json({ message: 'Error processing AGV History details', error: error.message });
     }

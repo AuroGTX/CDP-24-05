@@ -16,7 +16,7 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieparser());
 
-app.use("/", RoverRoutes);
+app.use("/rovers", RoverRoutes);
 app.use("/AGV", AGVHistoryRoutes );
 
 app.listen(PORT, () => {

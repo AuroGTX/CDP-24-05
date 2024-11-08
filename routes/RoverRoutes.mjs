@@ -4,7 +4,7 @@ import { addOrUpdateRovers, getAllRovers } from '../Controllers/RoverController.
 
 const RoverRoutes = express.Router();
 
-RoverRoutes.post('/rovers', addOrUpdateRovers);
-RoverRoutes.get('/rovers', getAllRovers);
+RoverRoutes.post('/', addOrUpdateRovers);
+RoverRoutes.get('/', getAllRovers);
 
 export default RoverRoutes;
