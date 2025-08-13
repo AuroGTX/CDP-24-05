@@ -10,15 +10,18 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "bcryptjs": "^3.0.2",
     "body-parser": "^1.20.3",
     "cookie-parser": "^1.4.7",
     "cors": "^2.8.5",
     "dotenv": "^16.4.5",
-    "express": "^4.21.1",
+    "express": "^4.21.2",
+    "jsonwebtoken": "^9.0.2",
     "mongoose": "^8.7.3",
     "nodemailer": "^6.9.12",
     "pino": "^9.5.0",
-    "pino-pretty": "^11.3.0"
+    "pino-pretty": "^11.3.0",
+    "react-i18next": "^15.6.1"
   },
   "devDependencies": {
     "@babel/preset-env": "^7.24.0",
